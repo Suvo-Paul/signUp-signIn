@@ -27,9 +27,8 @@ const signUp = async (req, res) => {
             password: hashPassword
         })
 
-        return res.send({
+        return res.status(201).send({
             success: true,
-            status: 200,
             message: "account created successfully",
             data: response
         })
