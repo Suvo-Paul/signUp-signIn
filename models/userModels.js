@@ -2,18 +2,23 @@ const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        trim :true
     },
     email: {
         type: String,
-        unique: true
+        lowercase : true,
+        unique: true,
+        trim : true,
+        required: true
     },
     mobileNo: {
         type: Number,
         unique: true
     },
     password: {
-        type: String
+        type: String,
+        required: [true,"Password is required"]
     },
     verificationCode: {
         type: String

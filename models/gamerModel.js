@@ -1,14 +1,24 @@
 const mongoose = require("mongoose")
 
 const gamerSchema = new mongoose.Schema({
-    username: {
-        type: String
+    name: {
+        type: String,
+        trim :true
     },
     email: {
-        type: String
+        type: String,
+        lowercase : true,
+        unique: true,
+        trim : true,
+        required: true
+    },
+    mobileNo: {
+        type: Number,
+        unique: true
     },
     password: {
-        type: String
+        type: String,
+        required: [true,"Password is required"]
     },
     verficationCode: {
         type: String
