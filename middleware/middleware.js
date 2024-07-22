@@ -12,9 +12,8 @@ const auth = (req, res, next) => {
 
             req.user = user
         } else {
-            return res.send({
-                success: false,
-                status: 401
+            return res.status(401).send({
+                success: false
             })
         }
     } catch (error) {
