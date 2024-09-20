@@ -244,4 +244,23 @@ const resetPassword = async (req, res) => {
     }
 }
 
-module.exports = { signUp, logIn, forgetPassword, resetPassword }
+const getAllUser = async (req, res) => {
+    try {
+        const response = await userCollection.find({})
+
+        return res.status(200).send({
+            success: true,
+            message: "User data get successfully",
+            data: response
+        })
+    } catch (error) {
+        return res.send({
+            success: false,
+            status: 500,
+            message: "Internal server error",
+            data: error.message
+        })
+    }
+}
+
+module.exports = { signUp, logIn, forgetPassword, resetPassword, getAllUser }
